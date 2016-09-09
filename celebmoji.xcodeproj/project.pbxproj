@@ -19,6 +19,17 @@
 		8B90D0911D8243DC00FF151F /* Beyonce.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D08C1D8243DC00FF151F /* Beyonce.png */; };
 		8B90D0921D8243DC00FF151F /* Chance.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D08D1D8243DC00FF151F /* Chance.png */; };
 		8B90D0931D8243DC00FF151F /* Drake.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D08E1D8243DC00FF151F /* Drake.png */; };
+		8B90D09D1D831F8D00FF151F /* Beiber1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0941D831F8D00FF151F /* Beiber1.png */; };
+		8B90D09E1D831F8D00FF151F /* Beiber2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0951D831F8D00FF151F /* Beiber2.png */; };
+		8B90D09F1D831F8D00FF151F /* Bernie1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0961D831F8D00FF151F /* Bernie1.png */; };
+		8B90D0A01D831F8D00FF151F /* Bernie2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0971D831F8D00FF151F /* Bernie2.png */; };
+		8B90D0A11D831F8D00FF151F /* Drake1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0981D831F8D00FF151F /* Drake1.png */; };
+		8B90D0A21D831F8D00FF151F /* Drake2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0991D831F8D00FF151F /* Drake2.png */; };
+		8B90D0A31D831F8D00FF151F /* Drake3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D09A1D831F8D00FF151F /* Drake3.png */; };
+		8B90D0A41D831F8D00FF151F /* Drake4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D09B1D831F8D00FF151F /* Drake4.png */; };
+		8B90D0A51D831F8D00FF151F /* Drake5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D09C1D831F8D00FF151F /* Drake5.png */; };
+		8B90D0A71D83235F00FF151F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90D0A61D83235F00FF151F /* CollectionViewCell.swift */; };
+		8B90D0A91D8339F900FF151F /* Beiber3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0A81D8339F900FF151F /* Beiber3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +72,17 @@
 		8B90D08C1D8243DC00FF151F /* Beyonce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beyonce.png; sourceTree = "<group>"; };
 		8B90D08D1D8243DC00FF151F /* Chance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chance.png; sourceTree = "<group>"; };
 		8B90D08E1D8243DC00FF151F /* Drake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drake.png; sourceTree = "<group>"; };
+		8B90D0941D831F8D00FF151F /* Beiber1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beiber1.png; sourceTree = "<group>"; };
+		8B90D0951D831F8D00FF151F /* Beiber2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beiber2.png; sourceTree = "<group>"; };
+		8B90D0961D831F8D00FF151F /* Bernie1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bernie1.png; sourceTree = "<group>"; };
+		8B90D0971D831F8D00FF151F /* Bernie2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bernie2.png; sourceTree = "<group>"; };
+		8B90D0981D831F8D00FF151F /* Drake1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drake1.png; sourceTree = "<group>"; };
+		8B90D0991D831F8D00FF151F /* Drake2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drake2.png; sourceTree = "<group>"; };
+		8B90D09A1D831F8D00FF151F /* Drake3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drake3.png; sourceTree = "<group>"; };
+		8B90D09B1D831F8D00FF151F /* Drake4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drake4.png; sourceTree = "<group>"; };
+		8B90D09C1D831F8D00FF151F /* Drake5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drake5.png; sourceTree = "<group>"; };
+		8B90D0A61D83235F00FF151F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		8B90D0A81D8339F900FF151F /* Beiber3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beiber3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +139,7 @@
 				8B90D0891D8243DC00FF151F /* Images */,
 				8B90D0651D82388C00FF151F /* MessagesViewController.swift */,
 				8B90D0761D8239E700FF151F /* StickerBrowserViewController.swift */,
+				8B90D0A61D83235F00FF151F /* CollectionViewCell.swift */,
 				8B90D0671D82388C00FF151F /* MainInterface.storyboard */,
 				8B90D06A1D82388C00FF151F /* Assets.xcassets */,
 				8B90D06C1D82388C00FF151F /* Info.plist */,
@@ -127,6 +150,16 @@
 		8B90D0891D8243DC00FF151F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8B90D0A81D8339F900FF151F /* Beiber3.png */,
+				8B90D0941D831F8D00FF151F /* Beiber1.png */,
+				8B90D0951D831F8D00FF151F /* Beiber2.png */,
+				8B90D0961D831F8D00FF151F /* Bernie1.png */,
+				8B90D0971D831F8D00FF151F /* Bernie2.png */,
+				8B90D0981D831F8D00FF151F /* Drake1.png */,
+				8B90D0991D831F8D00FF151F /* Drake2.png */,
+				8B90D09A1D831F8D00FF151F /* Drake3.png */,
+				8B90D09B1D831F8D00FF151F /* Drake4.png */,
+				8B90D09C1D831F8D00FF151F /* Drake5.png */,
 				8B90D08A1D8243DC00FF151F /* Beiber.png */,
 				8B90D08B1D8243DC00FF151F /* Bernie.png */,
 				8B90D08C1D8243DC00FF151F /* Beyonce.png */,
@@ -225,13 +258,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B90D0A01D831F8D00FF151F /* Bernie2.png in Resources */,
+				8B90D09D1D831F8D00FF151F /* Beiber1.png in Resources */,
+				8B90D09E1D831F8D00FF151F /* Beiber2.png in Resources */,
 				8B90D06B1D82388C00FF151F /* Assets.xcassets in Resources */,
+				8B90D0A21D831F8D00FF151F /* Drake2.png in Resources */,
 				8B90D08F1D8243DC00FF151F /* Beiber.png in Resources */,
+				8B90D0A11D831F8D00FF151F /* Drake1.png in Resources */,
+				8B90D09F1D831F8D00FF151F /* Bernie1.png in Resources */,
 				8B90D0911D8243DC00FF151F /* Beyonce.png in Resources */,
+				8B90D0A51D831F8D00FF151F /* Drake5.png in Resources */,
 				8B90D0921D8243DC00FF151F /* Chance.png in Resources */,
 				8B90D0901D8243DC00FF151F /* Bernie.png in Resources */,
+				8B90D0A91D8339F900FF151F /* Beiber3.png in Resources */,
 				8B90D0691D82388C00FF151F /* MainInterface.storyboard in Resources */,
 				8B90D0931D8243DC00FF151F /* Drake.png in Resources */,
+				8B90D0A31D831F8D00FF151F /* Drake3.png in Resources */,
+				8B90D0A41D831F8D00FF151F /* Drake4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +287,7 @@
 			files = (
 				8B90D0661D82388C00FF151F /* MessagesViewController.swift in Sources */,
 				8B90D0771D8239E700FF151F /* StickerBrowserViewController.swift in Sources */,
+				8B90D0A71D83235F00FF151F /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +475,7 @@
 				8B90D0711D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B90D0731D82388C00FF151F /* Build configuration list for PBXNativeTarget "celebmoji" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +484,7 @@
 				8B90D0751D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

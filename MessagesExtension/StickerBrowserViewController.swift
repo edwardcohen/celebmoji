@@ -9,18 +9,24 @@
 import Messages
 import UIKit
 
-class StickerBrowserViewController: MSStickerBrowserViewController {
+class StickerBrowserViewController: UIViewController, MSStickerBrowserViewDataSource {
+    @IBOutlet var buttonBack: UIButton!
+    @IBOutlet var labelPackName: UILabel!
+    @IBOutlet var stickerBrowserView: MSStickerBrowserView!
     
+    var packName: String!
+    var stickerNames = [String]()
     var stickers = [MSSticker]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createSticker(name: "Beiber")
-        createSticker(name: "Bernie")
-        createSticker(name: "Beyonce")
-        createSticker(name: "Chance")
-        createSticker(name: "Drake")
+        labelPackName.text = packName
+        for stickerName in stickerNames {
+            createSticker(name: stickerName)
+        }
+        
+        stickerBrowserView.dataSource = self
     }
     
     func createSticker(name: String) {
@@ -40,13 +46,19 @@ class StickerBrowserViewController: MSStickerBrowserViewController {
         stickers.append(sticker)
     }
     
-    override func numberOfStickers(in stickerBrowserView: MSStickerBrowserView) -> Int {
+    func numberOfStickers(in stickerBrowserView: MSStickerBrowserView) -> Int {
         return stickers.count
     }
     
-    override func stickerBrowserView(_ stickerBrowserView: MSStickerBrowserView,
+    func stickerBrowserView(_ stickerBrowserView: MSStickerBrowserView,
                                      stickerAt index: Int) -> MSSticker {
         return stickers[index]
+    }
+    
+    @IBAction func actionBack() {
+        let messagesVC = UIStoryboard(name: "MainInterface", bundle: nil).instantiateViewController(withIdentifier: "MessagesViewController") as! MessagesViewController
+        self.present(messagesVC, animated: false, completion: nil)
+
     }
     
 }

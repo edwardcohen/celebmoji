@@ -10,6 +10,16 @@ import UIKit
 import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
+    var stickerPacks = ["Beiber", "Bernie", "Drake", "Chance", "Beyonce"]
+    var stickerNames = [
+        ["Beiber1", "Beiber2", "Beiber3"],
+        ["Bernie1", "Bernie2"],
+        ["Drake1", "Drake2", "Drake3", "Drake4", "Drake5"],
+        ["Beiber1", "Beiber2", "Beiber3"],
+        ["Bernie1", "Bernie2"]
+    ]
+    
+    @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,5 +78,25 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
+}
 
+extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return stickerPacks.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        cell.imageView.image = UIImage(named: stickerPacks[indexPath.row])
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let stickerBrowserVC = UIStoryboard(name: "MainInterface", bundle: nil).instantiateViewController(withIdentifier: "StickerBrowserViewController") as! StickerBrowserViewController
+        stickerBrowserVC.packName = stickerPacks[indexPath.row]
+        stickerBrowserVC.stickerNames = stickerNames[indexPath.row]
+        self.present(stickerBrowserVC, animated: false, completion: nil)
+    }
 }

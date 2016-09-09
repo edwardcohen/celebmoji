@@ -1,15 +1,82 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SDs-Rq-Lsf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Messages View Controller-->
+        <scene sceneID="yoR-hV-kCm">
+            <objects>
+                <viewController storyboardIdentifier="MessagesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SDs-Rq-Lsf" customClass="MessagesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xTb-Bx-i7X"/>
+                        <viewControllerLayoutGuide type="bottom" id="aby-xb-L7o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YzE-mc-UDY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cvG-ED-nTY">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ZSU-6e-vrg">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="uBj-Vd-CM1" customClass="CollectionViewCell" customModule="MessagesExtension" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sc3-vh-96M"/>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Sc3-vh-96M" secondAttribute="bottom" id="TPp-ri-lrT"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Sc3-vh-96M" secondAttribute="trailing" id="awE-ml-aod"/>
+                                            <constraint firstItem="Sc3-vh-96M" firstAttribute="leading" secondItem="uBj-Vd-CM1" secondAttribute="leadingMargin" id="hsA-1j-nzw"/>
+                                            <constraint firstItem="Sc3-vh-96M" firstAttribute="top" secondItem="uBj-Vd-CM1" secondAttribute="topMargin" id="lcQ-gC-ndJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="Sc3-vh-96M" id="Hnu-WN-15Q"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="SDs-Rq-Lsf" id="sym-Ot-sWd"/>
+                                    <outlet property="delegate" destination="SDs-Rq-Lsf" id="aDR-xc-Jfx"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cvG-ED-nTY" firstAttribute="leading" secondItem="YzE-mc-UDY" secondAttribute="leadingMargin" id="Es4-VJ-vYw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cvG-ED-nTY" secondAttribute="trailing" id="tsW-xc-xRY"/>
+                            <constraint firstItem="cvG-ED-nTY" firstAttribute="top" secondItem="xTb-Bx-i7X" secondAttribute="bottom" id="yik-ET-4G1"/>
+                            <constraint firstItem="aby-xb-L7o" firstAttribute="top" secondItem="cvG-ED-nTY" secondAttribute="bottom" id="zmZ-TN-Xp8"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="collectionView" destination="cvG-ED-nTY" id="V5b-Ni-XYM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IIs-Or-G68" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-582.39999999999998" y="-255.47226386806599"/>
+        </scene>
         <!--Sticker Browser View Controller-->
         <scene sceneID="7MM-of-jgj">
             <objects>
-                <viewController id="ObA-dk-sSI" customClass="StickerBrowserViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StickerBrowserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ObA-dk-sSI" customClass="StickerBrowserViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
@@ -17,13 +84,48 @@
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqC-tP-hJF" userLabel="Back">
+                                <state key="normal" image="Back"/>
+                                <connections>
+                                    <action selector="actionBack" destination="ObA-dk-sSI" eventType="touchUpInside" id="xiQ-Wo-hiw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kanye" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7u-Tw-03X" userLabel="PackName">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyN-EM-0gj" customClass="MSStickerBrowserView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="p7u-Tw-03X" firstAttribute="centerY" secondItem="qqC-tP-hJF" secondAttribute="centerY" id="2S4-xt-WRR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p7u-Tw-03X" secondAttribute="trailing" id="CMk-8b-LJn"/>
+                            <constraint firstItem="qqC-tP-hJF" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="DHs-u4-KOX"/>
+                            <constraint firstItem="IyN-EM-0gj" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="50" id="J6f-rb-Smb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IyN-EM-0gj" secondAttribute="trailing" constant="-20" id="ad7-As-WaB"/>
+                            <constraint firstItem="IyN-EM-0gj" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" constant="-20" id="htB-Dv-qse"/>
+                            <constraint firstItem="qqC-tP-hJF" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" id="mHV-AM-R61"/>
+                            <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="IyN-EM-0gj" secondAttribute="bottom" id="mcW-kg-Ced"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="buttonBack" destination="qqC-tP-hJF" id="boE-AD-SZu"/>
+                        <outlet property="labelPackName" destination="p7u-Tw-03X" id="rTg-b2-XD3"/>
+                        <outlet property="stickerBrowserView" destination="IyN-EM-0gj" id="qsQ-SL-5Uq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="97.599999999999994" y="-255.47226386806599"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back" width="28" height="28"/>
+    </resources>
 </document>
