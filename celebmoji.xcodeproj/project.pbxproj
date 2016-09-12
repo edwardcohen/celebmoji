@@ -493,7 +493,7 @@
 				8B90D06E1D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		8B90D06F1D82388C00FF151F /* Build configuration list for PBXNativeTarget "MessagesExtension" */ = {
 			isa = XCConfigurationList;
@@ -502,7 +502,7 @@
 				8B90D0711D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		8B90D0731D82388C00FF151F /* Build configuration list for PBXNativeTarget "celebmoji" */ = {
 			isa = XCConfigurationList;
@@ -511,7 +511,7 @@
 				8B90D0751D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
