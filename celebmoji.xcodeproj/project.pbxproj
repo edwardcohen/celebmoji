@@ -30,6 +30,7 @@
 		8B90D0A51D831F8D00FF151F /* Drake5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D09C1D831F8D00FF151F /* Drake5.png */; };
 		8B90D0A71D83235F00FF151F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90D0A61D83235F00FF151F /* CollectionViewCell.swift */; };
 		8B90D0A91D8339F900FF151F /* Beiber3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B90D0A81D8339F900FF151F /* Beiber3.png */; };
+		8B90D0AD1D8356C600FF151F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B90D0AC1D8356C600FF151F /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		8B90D09C1D831F8D00FF151F /* Drake5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drake5.png; sourceTree = "<group>"; };
 		8B90D0A61D83235F00FF151F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		8B90D0A81D8339F900FF151F /* Beiber3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beiber3.png; sourceTree = "<group>"; };
+		8B90D0AC1D8356C600FF151F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B90D0631D82388C00FF151F /* Messages.framework in Frameworks */,
+				8B90D0AD1D8356C600FF151F /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +131,7 @@
 		8B90D0611D82388C00FF151F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B90D0AC1D8356C600FF151F /* StoreKit.framework */,
 				8B90D0621D82388C00FF151F /* Messages.framework */,
 			);
 			name = Frameworks;
@@ -218,11 +222,18 @@
 				TargetAttributes = {
 					8B90D0521D82388C00FF151F = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 5VY7X6W92A;
+						ProvisioningStyle = Manual;
 					};
 					8B90D05C1D82388C00FF151F = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 5VY7X6W92A;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -408,10 +419,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5VY7X6W92A;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zelig.celebmoji.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
+				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -421,10 +436,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5VY7X6W92A;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zelig.celebmoji.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
+				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -435,9 +454,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5VY7X6W92A;
 				INFOPLIST_FILE = celebmoji/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = zelig.celebmoji;
+				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
+				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -448,9 +471,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5VY7X6W92A;
 				INFOPLIST_FILE = celebmoji/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = zelig.celebmoji;
+				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
+				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,7 +493,7 @@
 				8B90D06E1D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		8B90D06F1D82388C00FF151F /* Build configuration list for PBXNativeTarget "MessagesExtension" */ = {
 			isa = XCConfigurationList;
@@ -475,7 +502,7 @@
 				8B90D0711D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		8B90D0731D82388C00FF151F /* Build configuration list for PBXNativeTarget "celebmoji" */ = {
 			isa = XCConfigurationList;
@@ -484,7 +511,7 @@
 				8B90D0751D82388C00FF151F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
