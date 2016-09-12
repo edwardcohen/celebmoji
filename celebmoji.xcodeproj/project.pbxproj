@@ -425,8 +425,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
-				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
+				PROVISIONING_PROFILE = "e556020a-42f4-4ace-9e29-c27bd8da723e";
+				PROVISIONING_PROFILE_SPECIFIER = celeb.moji.MesseagesExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -442,8 +442,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
-				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
+				PROVISIONING_PROFILE = "e556020a-42f4-4ace-9e29-c27bd8da723e";
+				PROVISIONING_PROFILE_SPECIFIER = celeb.moji.MesseagesExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -459,8 +459,8 @@
 				INFOPLIST_FILE = celebmoji/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
-				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
+				PROVISIONING_PROFILE = "ea225abf-ed62-4e07-9dfb-42756197e041";
+				PROVISIONING_PROFILE_SPECIFIER = celeb.moji;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -476,8 +476,8 @@
 				INFOPLIST_FILE = celebmoji/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = celeb.moji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b5da397-7279-4486-bf24-768f8f73478a";
-				PROVISIONING_PROFILE_SPECIFIER = celebmoji_provisioning_profile;
+				PROVISIONING_PROFILE = "ea225abf-ed62-4e07-9dfb-42756197e041";
+				PROVISIONING_PROFILE_SPECIFIER = celeb.moji;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -8,8 +8,12 @@
 
 import UIKit
 import Messages
+import StoreKit
 
-class MessagesViewController: MSMessagesAppViewController {
+class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDelegate {
+    var productIDs: Set = ["kanye"]
+    var productsArray = [SKProduct]()
+
     var stickerPacks = ["Beiber", "Bernie", "Drake", "Chance", "Beyonce"]
     var stickerNames = [
         ["Beiber1", "Beiber2", "Beiber3"],
@@ -23,7 +27,33 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        requestProductInfo()
+    }
+    
+    func requestProductInfo() {
+        if SKPaymentQueue.canMakePayments() {
+            let productRequest = SKProductsRequest(productIdentifiers: productIDs)
+            
+            productRequest.delegate = self
+            productRequest.start()
+        } else {
+            print("Cannot perform In App Purchases.")
+        }
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if response.products.count != 0 {
+            for product in response.products {
+                productsArray.append(product)
+            }
+        } else {
+            print("There are no products.")
+        }
+        
+        if response.invalidProductIdentifiers.count != 0 {
+            print(response.invalidProductIdentifiers.description)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,6 +111,7 @@ class MessagesViewController: MSMessagesAppViewController {
 }
 
 extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return stickerPacks.count
     }
@@ -94,9 +125,13 @@ extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    func showStickerBrowser(index: Int) {
         let stickerBrowserVC = UIStoryboard(name: "MainInterface", bundle: nil).instantiateViewController(withIdentifier: "StickerBrowserViewController") as! StickerBrowserViewController
-        stickerBrowserVC.packName = stickerPacks[indexPath.row]
-        stickerBrowserVC.stickerNames = stickerNames[indexPath.row]
+        stickerBrowserVC.packName = stickerPacks[index]
+        stickerBrowserVC.stickerNames = stickerNames[index]
         self.present(stickerBrowserVC, animated: false, completion: nil)
     }
 }
