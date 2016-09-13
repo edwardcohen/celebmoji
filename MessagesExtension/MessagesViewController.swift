@@ -12,6 +12,7 @@ import StoreKit
 
 class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     var purchasedProductIDs = [String]()
+//    var purchasedProductIDs = ["bieber", "kim"]
     var productsArray = [SKProduct]()
 
     var stickerNames = [
@@ -65,7 +66,9 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
                 }
                 
             }
-            collectionView.reloadData()
+            OperationQueue.main.addOperation {
+                self.collectionView.reloadData()
+            }
         } else {
             print("There are no products.")
         }
@@ -82,6 +85,10 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
                 print("Transaction completed successfully.")
                 SKPaymentQueue.default().finishTransaction(transaction)
                 purchasedProductIDs.append(productsArray[selectedProductIndex].productIdentifier)
+                UserDefaults.standard.set(true, forKey: productsArray[selectedProductIndex].productIdentifier)
+                OperationQueue.main.addOperation {
+                    self.collectionView.reloadData()
+                }
                 transactionInProgress = false
             case .failed:
                 print("Transaction Failed")
@@ -156,6 +163,11 @@ extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
         cell.imageView.image = UIImage(named: productsArray[indexPath.row].productIdentifier)
+        if purchasedProductIDs.contains(productsArray[indexPath.row].productIdentifier) {
+            cell.imageView.alpha = 1.0
+        } else {
+            cell.imageView.alpha = 0.5
+        }
         
         return cell
     }
@@ -180,6 +192,8 @@ extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDe
         let stickerBrowserVC = UIStoryboard(name: "MainInterface", bundle: nil).instantiateViewController(withIdentifier: "StickerBrowserViewController") as! StickerBrowserViewController
         stickerBrowserVC.packName = productsArray[index].productIdentifier
         stickerBrowserVC.stickerNames = stickerNames[productsArray[index].productIdentifier]!
-        self.present(stickerBrowserVC, animated: false, completion: nil)
+        OperationQueue.main.addOperation {
+            self.present(stickerBrowserVC, animated: false, completion: nil)
+        }
     }
 }

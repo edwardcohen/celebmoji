@@ -57,8 +57,9 @@ class StickerBrowserViewController: UIViewController, MSStickerBrowserViewDataSo
     
     @IBAction func actionBack() {
         let messagesVC = UIStoryboard(name: "MainInterface", bundle: nil).instantiateViewController(withIdentifier: "MessagesViewController") as! MessagesViewController
-        self.present(messagesVC, animated: false, completion: nil)
-
+        OperationQueue.main.addOperation {
+            self.present(messagesVC, animated: false, completion: nil)
+        }
     }
     
 }
