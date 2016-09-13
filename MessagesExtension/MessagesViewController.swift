@@ -15,6 +15,21 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
 //    var purchasedProductIDs = ["bieber", "kim"]
     var productsArray = [SKProduct]()
 
+    var packNames = [
+        "bieber": "Bieber!",
+        "bernie": "Bernie!",
+        "beyonce": "Beyonce!",
+        "chance": "Chance!",
+        "drake": "Drake!",
+        "frank": "Frank!",
+        "hillary": "Hillary!",
+        "jayz": "Jayz!",
+        "jerry": "Jerry!",
+        "kanyewest": "Kanye!",
+        "kim": "Kim!", 
+        "taylor": "Taylor!", 
+        "trump": "Trump!"]
+    
     var stickerNames = [
         "bieber": ["Bieber (1)", "Bieber (10)", "Bieber (11)", "Bieber (12)", "Bieber (13)", "Bieber (14)", "Bieber (15)", "Bieber (2)", "Bieber (3)", "Bieber (4)", "Bieber (5)", "Bieber (6)", "Bieber (7)", "Bieber (8)", "Bieber (9)"],
         "bernie": ["Bernie (1)", "Bernie (10)", "Bernie (2)", "Bernie (3)", "Bernie (4)", "Bernie (5)", "Bernie (6)", "Bernie (7)", "Bernie (8)", "Bernie (9)"],
@@ -162,12 +177,14 @@ extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
-        cell.imageView.image = UIImage(named: productsArray[indexPath.row].productIdentifier)
+        cell.packImage.image = UIImage(named: productsArray[indexPath.row].productIdentifier)
         if purchasedProductIDs.contains(productsArray[indexPath.row].productIdentifier) {
-            cell.imageView.alpha = 1.0
+            cell.packImage.alpha = 1.0
         } else {
-            cell.imageView.alpha = 0.5
+            cell.packImage.alpha = 0.5
         }
+        
+        cell.nameLabel.text = packNames[productsArray[indexPath.row].productIdentifier]
         
         return cell
     }
