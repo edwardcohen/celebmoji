@@ -15,11 +15,19 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
     var productsArray = [SKProduct]()
 
     var stickerNames = [
-        "bieber": ["Bieber1", "Bieber2", "Bieber3"],
-        "bernie": ["Bernie1", "Bernie2"],
-        "drake": ["Drake1", "Drake2", "Drake3", "Drake4", "Drake5"],
-        "chance": ["Beiber1", "Beiber2", "Beiber3"],
-        "beyonce": ["Bernie1", "Bernie2"]
+        "bieber": ["Bieber (1)", "Bieber (10)", "Bieber (11)", "Bieber (12)", "Bieber (13)", "Bieber (14)", "Bieber (15)", "Bieber (2)", "Bieber (3)", "Bieber (4)", "Bieber (5)", "Bieber (6)", "Bieber (7)", "Bieber (8)", "Bieber (9)"],
+        "bernie": ["Bernie (1)", "Bernie (10)", "Bernie (2)", "Bernie (3)", "Bernie (4)", "Bernie (5)", "Bernie (6)", "Bernie (7)", "Bernie (8)", "Bernie (9)"],
+        "beyonce": ["Beyonce (1)", "Beyonce (10)", "Beyonce (11)", "Beyonce (12)", "Beyonce (13)", "Beyonce (14)", "Beyonce (15)", "Beyonce (2)", "Beyonce (3)", "Beyonce (4)", "Beyonce (5)", "Beyonce (6)", "Beyonce (7)", "Beyonce (8)", "Beyonce (9)"],
+        "chance": ["Chance (1)", "Chance (10)", "Chance (11)", "Chance (12)", "Chance (13)", "Chance (14)", "Chance (15)", "Chance (2)", "Chance (3)", "Chance (4)", "Chance (5)", "Chance (6)", "Chance (7)", "Chance (8)", "Chance (9)"],
+        "drake": ["Drake (1)", "Drake (10)", "Drake (2)", "Drake (3)", "Drake (4)", "Drake (5)", "Drake (6)", "Drake (7)", "Drake (8)", "Drake (9)"],
+        "frank": ["Frank (1)", "Frank (10)", "Frank (11)", "Frank (12)", "Frank (13)", "Frank (14)", "Frank (15)", "Frank (2)", "Frank (3)", "Frank (4)", "Frank (5)", "Frank (6)", "Frank (7)", "Frank (8)", "Frank (9)"],
+        "hillary": ["Hillary (1)", "Hillary (10)", "Hillary (2)", "Hillary (3)", "Hillary (4)", "Hillary (5)", "Hillary (6)", "Hillary (7)", "Hillary (8)", "Hillary (9)"],
+        "jayz": ["Jayz (1)", "Jayz (10)", "Jayz (2)", "Jayz (3)", "Jayz (4)", "Jayz (5)", "Jayz (6)", "Jayz (7)", "Jayz (8)", "Jayz (9)"],
+        "jerry": ["Jerry (1)", "Jerry (10)", "Jerry (2)", "Jerry (3)", "Jerry (4)", "Jerry (5)", "Jerry (6)", "Jerry (7)", "Jerry (8)", "Jerry (9)"],
+        "kanyewest": ["Kanye (1)", "Kanye (10)", "Kanye (11)", "Kanye (12)", "Kanye (13)", "Kanye (14)", "Kanye (15)", "Kanye (2)", "Kanye (3)", "Kanye (4)", "Kanye (5)", "Kanye (6)", "Kanye (7)", "Kanye (8)", "Kanye (9)"],
+        "kim": ["Kim (1)", "Kim (10)", "Kim (11)", "Kim (12)", "Kim (13)", "Kim (14)", "Kim (15)", "Kim (2)", "Kim (3)", "Kim (4)", "Kim (5)", "Kim (6)", "Kim (7)", "Kim (8)", "Kim (9)"],
+        "taylor": ["Taylor (1)", "Taylor (10)", "Taylor (11)", "Taylor (12)", "Taylor (13)", "Taylor (14)", "Taylor (15)", "Taylor (2)", "Taylor (3)", "Taylor (4)", "Taylor (5)", "Taylor (6)", "Taylor (7)", "Taylor (8)", "Taylor (9)"],
+        "trump": ["Trump (1)", "Trump (10)", "Trump (2)", "Trump (3)", "Trump (4)", "Trump (5)", "Trump (6)", "Trump (7)", "Trump (8)", "Trump (9)"]
     ]
     
     var selectedProductIndex: Int!
