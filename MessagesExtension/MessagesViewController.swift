@@ -10,18 +10,20 @@ import UIKit
 import Messages
 import StoreKit
 
-class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDelegate {
-    var productIDs: Set = ["kanye"]
+class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+    var purchasedProductIDs = [String]()
     var productsArray = [SKProduct]()
 
-    var stickerPacks = ["Beiber", "Bernie", "Drake", "Chance", "Beyonce"]
     var stickerNames = [
-        ["Beiber1", "Beiber2", "Beiber3"],
-        ["Bernie1", "Bernie2"],
-        ["Drake1", "Drake2", "Drake3", "Drake4", "Drake5"],
-        ["Beiber1", "Beiber2", "Beiber3"],
-        ["Bernie1", "Bernie2"]
+        "bieber": ["Bieber1", "Bieber2", "Bieber3"],
+        "bernie": ["Bernie1", "Bernie2"],
+        "drake": ["Drake1", "Drake2", "Drake3", "Drake4", "Drake5"],
+        "chance": ["Beiber1", "Beiber2", "Beiber3"],
+        "beyonce": ["Bernie1", "Bernie2"]
     ]
+    
+    var selectedProductIndex: Int!
+    var transactionInProgress = false
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -29,11 +31,13 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
         super.viewDidLoad()
         
         requestProductInfo()
+        
+        SKPaymentQueue.default().add(self)
     }
     
     func requestProductInfo() {
         if SKPaymentQueue.canMakePayments() {
-            let productRequest = SKProductsRequest(productIdentifiers: productIDs)
+            let productRequest = SKProductsRequest(productIdentifiers: Set(stickerNames.keys))
             
             productRequest.delegate = self
             productRequest.start()
@@ -46,7 +50,14 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
         if response.products.count != 0 {
             for product in response.products {
                 productsArray.append(product)
+                
+                let purchased = UserDefaults.standard.bool(forKey: product.productIdentifier)
+                if purchased {
+                    purchasedProductIDs.append(product.productIdentifier)
+                }
+                
             }
+            collectionView.reloadData()
         } else {
             print("There are no products.")
         }
@@ -56,6 +67,23 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
         }
     }
     
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchased:
+                print("Transaction completed successfully.")
+                SKPaymentQueue.default().finishTransaction(transaction)
+                purchasedProductIDs.append(productsArray[selectedProductIndex].productIdentifier)
+                transactionInProgress = false
+            case .failed:
+                print("Transaction Failed")
+                SKPaymentQueue.default().finishTransaction(transaction)
+                transactionInProgress = false
+            default:
+                print(transaction.transactionState.rawValue)
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,25 +141,37 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
 extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stickerPacks.count
+        return productsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
-        cell.imageView.image = UIImage(named: stickerPacks[indexPath.row])
+        cell.imageView.image = UIImage(named: productsArray[indexPath.row].productIdentifier)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if transactionInProgress {
+            return
+        }
         
+        selectedProductIndex = indexPath.row
+        
+        if purchasedProductIDs.contains(productsArray[selectedProductIndex].productIdentifier) {
+            showStickerBrowser(index: indexPath.row)
+        } else {
+            let payment = SKPayment(product: productsArray[selectedProductIndex])
+            SKPaymentQueue.default().add(payment)
+            transactionInProgress = true
+        }
     }
     
     func showStickerBrowser(index: Int) {
         let stickerBrowserVC = UIStoryboard(name: "MainInterface", bundle: nil).instantiateViewController(withIdentifier: "StickerBrowserViewController") as! StickerBrowserViewController
-        stickerBrowserVC.packName = stickerPacks[index]
-        stickerBrowserVC.stickerNames = stickerNames[index]
+        stickerBrowserVC.packName = productsArray[index].productIdentifier
+        stickerBrowserVC.stickerNames = stickerNames[productsArray[index].productIdentifier]!
         self.present(stickerBrowserVC, animated: false, completion: nil)
     }
 }
