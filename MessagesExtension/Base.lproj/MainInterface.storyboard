@@ -19,6 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ulh-r4-HZT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Fie-Uj-m7q"/>
+                                </constraints>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cvG-ED-nTY">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ZSU-6e-vrg">
@@ -70,16 +75,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ulh-r4-HZT" firstAttribute="leading" secondItem="YzE-mc-UDY" secondAttribute="leadingMargin" id="AgD-LQ-xCh"/>
                             <constraint firstItem="cvG-ED-nTY" firstAttribute="leading" secondItem="YzE-mc-UDY" secondAttribute="leadingMargin" id="Es4-VJ-vYw"/>
+                            <constraint firstItem="cvG-ED-nTY" firstAttribute="top" secondItem="ulh-r4-HZT" secondAttribute="bottom" id="Eyi-CX-eAF"/>
+                            <constraint firstItem="ulh-r4-HZT" firstAttribute="top" secondItem="xTb-Bx-i7X" secondAttribute="bottom" id="OdW-SS-n6P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cvG-ED-nTY" secondAttribute="trailing" id="tsW-xc-xRY"/>
-                            <constraint firstItem="cvG-ED-nTY" firstAttribute="top" secondItem="xTb-Bx-i7X" secondAttribute="bottom" id="yik-ET-4G1"/>
                             <constraint firstItem="aby-xb-L7o" firstAttribute="top" secondItem="cvG-ED-nTY" secondAttribute="bottom" id="zmZ-TN-Xp8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ulh-r4-HZT" secondAttribute="trailing" id="zwk-jU-zL8"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
                         <outlet property="collectionView" destination="cvG-ED-nTY" id="V5b-Ni-XYM"/>
+                        <outlet property="logoHeightContraint" destination="Fie-Uj-m7q" id="nvy-og-k85"/>
+                        <outlet property="logoImage" destination="ulh-r4-HZT" id="gEI-2x-lu2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIs-Or-G68" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,5 +150,6 @@
     </scenes>
     <resources>
         <image name="Back" width="28" height="28"/>
+        <image name="Logo" width="76" height="27"/>
     </resources>
 </document>

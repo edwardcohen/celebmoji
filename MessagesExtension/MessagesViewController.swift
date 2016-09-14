@@ -10,7 +10,7 @@ import UIKit
 import Messages
 import StoreKit
 
-class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver, UIScrollViewDelegate {
     var purchasedProductIDs = [String]()
 //    var purchasedProductIDs = ["bieber", "kim"]
     var productsArray = [SKProduct]()
@@ -49,10 +49,14 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
     var selectedProductIndex: Int!
     var transactionInProgress = false
     
+    @IBOutlet var logoImage: UIImageView!
+    @IBOutlet var logoHeightContraint: NSLayoutConstraint!
     @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
         
         requestProductInfo()
         
@@ -114,6 +118,17 @@ class MessagesViewController: MSMessagesAppViewController, SKProductsRequestDele
             }
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollPos = scrollView.contentOffset
+        
+        if scrollPos.y >= 40 {
+            logoHeightContraint.constant = 0
+        } else {
+            logoHeightContraint.constant = 40
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -207,7 +222,7 @@ extension MessagesViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func showStickerBrowser(index: Int) {
         let stickerBrowserVC = UIStoryboard(name: "MainInterface", bundle: nil).instantiateViewController(withIdentifier: "StickerBrowserViewController") as! StickerBrowserViewController
-        stickerBrowserVC.packName = productsArray[index].productIdentifier
+        stickerBrowserVC.packName = packNames[productsArray[index].productIdentifier]
         stickerBrowserVC.stickerNames = stickerNames[productsArray[index].productIdentifier]!
         OperationQueue.main.addOperation {
             self.present(stickerBrowserVC, animated: false, completion: nil)
